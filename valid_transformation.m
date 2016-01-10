@@ -1,3 +1,4 @@
+%%Checks if 2 consecutive steps of a given gait is correct
 function [ output ] = valid_transformation( step_1 , step_2 )
   [ ~,~,~,feet_i ] = robot_motors_coordinates( [0 0 7] ,step_1(1,:), step_1(2,:) ,step_1(3,:) );
   [ ~,~,~,feet_f ] = robot_motors_coordinates( [0 0 7] ,step_2(1,:), step_2(2,:) ,step_2(3,:) );

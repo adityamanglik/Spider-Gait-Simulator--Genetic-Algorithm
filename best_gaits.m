@@ -2,7 +2,7 @@ function [ best_gait ] = best_gaits( population,population_size,fitness_value,nu
 
 total_fitness = sum(fitness_value);
 
-probability = fitness_value/total_fitness;
+probability = fitness_value./total_fitness;
 
 index = random('unid',population_size);
 

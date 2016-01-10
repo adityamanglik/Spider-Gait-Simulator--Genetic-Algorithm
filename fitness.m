@@ -1,12 +1,12 @@
 function [ fitness ] = fitness(gait)
-%  FITNESS FUNCTION
+%  FITNESS FUNCTION, TESTED
 %   Fitness Function is defined as Displacement of centre/ No of Steps
 
 center_i = [0 0 7];      % initial location of center.
 
 angles_i = [ 0 , 0 , 0 , 0 , 0 , 0;
-            60 ,60 ,60 ,60 ,60 ,60 ;         % initial angle matrix 
-            30 ,30 ,30, 30, 30, 30 ];
+    60 ,60 ,60 ,60 ,60 ,60 ;         % initial angle matrix
+    30 ,30 ,30, 30, 30, 30 ];
 
 
 [center_f] = spider_gait_simulator(center_i,gait,'N');

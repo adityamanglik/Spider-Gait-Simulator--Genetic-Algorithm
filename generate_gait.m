@@ -1,17 +1,17 @@
-function [ gait ] = generate_gait(  )
+function [ gait ] = generate_gait( init_state , gait_length)
 % This function generates a random working gait to be applied on the simulatoin.
 
-init_state = [ 0  0  0  0  0  0;
-              60 60 60 60 60 60;      % initial state of the spider.
-              30 30 30 30 30 30];
+%init_state = [ 0  0  0  0  0  0;
+%              60 60 60 60 60 60;      % initial state of the spider.
+%              30 30 30 30 30 30];
 init_state_temp = init_state;          
  i=4;
-c=1;
+
 count = 10;
 step(1,:) = init_state(1,:);
 step(2,:) = init_state(2,:);
 step(3,:) = init_state(3,:);
- while(c) 
+ while(i<3*gait_length) 
 
          if( i == 4)                                                 % this should run only for the first time in the entire gait generation.
          while(count)
@@ -42,7 +42,7 @@ step(3,:) = init_state(3,:);
     step(i+1,:) = S(2,:);
     step(i+2,:) = S(3,:);
     init_state = S;
-    c = ((terminating_condition(S))||(10>=i))&&(i<33);
+    
     i=i+3;
  end
 
