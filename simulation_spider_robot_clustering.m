@@ -7,10 +7,10 @@ angles_i = [ 0 , 0 , 0 , 0 , 0 , 0;
     60 ,60 ,60 ,60 ,60 ,60 ;         % initial angle matrix
     30 ,30 ,30, 30, 30, 30 ];
 
-population_size =75 ;                        % size of the population of gaits.
-population_size_new =25 ;
-num_of_gen= 40 ;
-cross_over_rate = .7;
+population_size =100 ;                        % size of the population of gaits.
+population_size_new = 20;
+num_of_gen=10;
+cross_over_rate = .2;
 cross_over_rate_new = .7;
 number_steps_gait=12;
 num_best_gaits =  floor(cross_over_rate * population_size);
@@ -18,7 +18,7 @@ num_mutated_gaits = population_size - num_best_gaits-1;
 fitness_database=zeros(population_size, num_of_gen);
 aristocrats=cell([1 num_of_gen]);
 fitness_tracker=zeros(population_size,1);
-change_algo_at_generation = 41;
+change_algo_at_generation = 5;
 display('Generating Population......');
 %%Population Generation
 population = cell([1 population_size]);
@@ -135,7 +135,7 @@ for j= change_algo_at_generation:num_of_gen
     mutated_gaits = cell([1 num_mutated_gaits]);
     t= randi(population_size_new,1,1);
     for i=1:num_mutated_gaits
-        mutated_gaits{i} = mutate(population{t});
+        mutated_gaits{i} = mutate2(population{t},.7);
     end
     display('Mutation complete');
     
@@ -147,16 +147,6 @@ for j= change_algo_at_generation:num_of_gen
         next_population{i} = mutated_gaits{i-num_best_gaits};
     end
     next_population{population_size_new} =  heavyweight;
-    
-%     for k=1:population_size_new
-%        for t=1:population_size_new
-%        if((similar_gaits(population{k},population{t}) == 1) && (k ~= t))
-%           population{t} = mutate2(population{t},.7);
-%        end
-%        end
-%     end
-    
-    
     population=next_population;
     display('Population updated, iteration complete, printing fitness of current generation!');
     

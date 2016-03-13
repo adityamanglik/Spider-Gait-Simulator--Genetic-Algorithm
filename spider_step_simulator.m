@@ -14,7 +14,7 @@ shi_f = angles_f(2,:);
 theta_f = angles_f(3,:);
 
 [base_motors_i,joint_motors_i,leg_motors_i,feet_i]=robot_motors_coordinates(center_i,phi_i,shi_i,theta_i); 
-[base_motors_f,~,~,~]=update_coordinates(base_motors_i,joint_motors_i,leg_motors_i,feet_i,phi_i,shi_i,theta_i,phi_f,shi_f,theta_f); 
+[base_motors_f,joint_motors_f,leg_motors_f,feet_f]=update_coordinates(base_motors_i,joint_motors_i,leg_motors_i,feet_i,phi_i,shi_i,theta_i,phi_f,shi_f,theta_f); 
 
 delta_center = (sum(base_motors_f(1:6,:)) - sum(base_motors_i(1:6,:)))/6 ;
 

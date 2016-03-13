@@ -17,7 +17,7 @@ for i=1:steps
    [base_motors_f,joint_motors_f,leg_motors_f,feet_f ] = update_coordinates(base_motors_i,joint_motors_i,leg_motors_i,feet_i,phi,shi,theta,phi+phi_inc,shi+shi_inc,theta+theta_inc);
    plot_spider(base_motors_f,joint_motors_f,leg_motors_f,feet_f);         % plotting of spider with incremented angles.
   axis equal;
-  axis([-20 60 -20 30 0 8]);
+  axis([-20 80 -25 30 0 15]);
   
   F(i) = getframe(); 
   

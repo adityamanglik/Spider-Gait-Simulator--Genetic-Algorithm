@@ -11,5 +11,5 @@ angles_i = [ 0 , 0 , 0 , 0 , 0 , 0;
 
 [center_f] = spider_gait_simulator(center_i,gait,'N');
 
-fitness = ( center_f(1)*(15-center_f(2)) ) / (numel(gait) /18);
+fitness = ( center_f(1)*(15-abs(center_f(2))) ) / (numel(gait) /18);
 end

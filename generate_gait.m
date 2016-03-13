@@ -1,4 +1,4 @@
-function [ gait ] = generate_gait( init_state , gait_length)
+function [ gait ] = generate_gait( init_state , gait_length,condition)
 % This function generates a random working gait to be applied on the simulatoin.
 
 %init_state = [ 0  0  0  0  0  0;
@@ -7,7 +7,7 @@ function [ gait ] = generate_gait( init_state , gait_length)
 init_state_temp = init_state;          
  i=4;
 
-count = 10;
+count = 100;
 step(1,:) = init_state(1,:);
 step(2,:) = init_state(2,:);
 step(3,:) = init_state(3,:);
@@ -18,6 +18,7 @@ step(3,:) = init_state(3,:);
          count = count -1;
          rand_6_inc  = (randi(2,6,1)-1)';     % leg incrementors
          rand_6_angle = (randi(3,6,1)-1)';    % leg motor angles.
+    
          for j=1:3
          S = next_state(init_state,rand_6_inc,rand_6_angle);
          init_state = S;
@@ -33,6 +34,7 @@ step(3,:) = init_state(3,:);
                end
          end
          end
+ if(gait_length>2)        
  rand_6_inc  = (randi(2,6,1)-1)';     % leg incrementors
  rand_6_angle = (randi(3,6,1)-1)';    % leg motor angles.
 
@@ -47,6 +49,7 @@ step(3,:) = init_state(3,:);
  end
 
  end 
+ end
  gait = step;
 
 

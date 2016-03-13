@@ -4,8 +4,12 @@ function [ state ] = next_state( init_state , rand_6_inc , rand_6_angle)
 
 state = init_state;                          % initializing the next state.
 
-
-
+%rand_6_inc(1) = 0;
+%rand_6_inc(2) = 0;
+%rand_6_inc(3) = 0;
+%rand_6_inc(4) = 0;
+%rand_6_inc(5) = 0;
+%rand_6_inc(6) = 0;
  for i=1:6
     if(rand_6_inc(i) == 1)
        % display('incrementing leg number.......');

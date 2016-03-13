@@ -35,12 +35,13 @@ end
 count = 0;
 
 for i=1:6
-    if(legs_onground(i) ==1 && min(eq(feet_i(i,:),feet_f(i,:))) == 0)         % calculation of number of legs that were on ground and moved.
+    if(legs_onground(i) ==1 && min(eq(feet_i(i,:),feet_f(i,:))) == 0)         % calculation of number of legs that were on ground and not moved.
        count = count+1;
     end
 end
 
 alpha = 1-count/6;                                             % coffecient of forward motion of body w.r.t. feet's motion.
+%alpha = 1;
 for i=1:6
     if(legs_onground(i) ==1)
         base_motors_impulse(i,:) = alpha*(feet_i(i,:) - feet_f(i,:));      % calculation of impulse on each of the base motors due to the motion.
