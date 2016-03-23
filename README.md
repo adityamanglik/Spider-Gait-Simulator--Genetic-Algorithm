@@ -4,3 +4,6 @@ This program simulates a hexapod in MATLAB environment, and develops gaits for t
 Crossover,fitness and mutation functions are self-explanatory.
 The hexapod only considers 2-D motion as of now. Yaw, pitch and roll of the body are unaccounted for. Fitness function is defined as maximum distance covered in positive x-axis, divided by the number of steps taken. Fitness function also penalizes sideways deviation.
 To begin execution, start simulation_spider_robot.m from the command window.
+
+A youtube video for the entire project, including description of the MATLAB simulation and real hexapod:
+https://www.youtube.com/watch?v=JdoxzhlmOAg&feature=youtu.be
